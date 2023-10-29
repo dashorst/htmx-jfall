@@ -2,6 +2,7 @@ package com.martijndashorst;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -90,5 +91,11 @@ public class Conference {
 
     public List<String> speakers() {
         return new ArrayList<>(speakers);
+    }
+
+    public List<String> randomSpeakers(int number) {
+        var speakers = speakers();
+        Collections.shuffle(speakers);
+        return speakers.subList(0, number);
     }
 }
