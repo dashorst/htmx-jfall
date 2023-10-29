@@ -1,0 +1,19 @@
+<ul id="speakers" class="list-group" 
+    hx-confirm="Are you sure?"
+    hx-target="closest li" 
+    hx-swap="outerHTML swap:1s"
+>
+{#for speaker in speakers}
+<li class="list-group-item d-flex justify-content-between">
+    <div><i class="bi bi-easel-fill"></i>
+    {speaker}
+    </div>
+    <button class="btn btn-sm btn-outline-danger"
+        hx-delete="/hxdelete/delete/{speaker}"
+    ><i class="bi bi-person-x-fill"></i></button>
+</li>
+{/for}
+</ul>
+{#if !inject:vertxRequest.getHeader("hx-request") }
+<button class="btn btn-outline-light mt-1" hx-target="#speakers" hx-get="/hxdelete/reset" hx-swap="outerHTML">Reset</button>
+{/if}
