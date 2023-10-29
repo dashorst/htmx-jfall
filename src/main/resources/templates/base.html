@@ -35,6 +35,12 @@
         .list-group-item {
             background-color: rgba(255,255,255,.95);
         }
+        .htmx-indicator {
+            display:hidden;
+            .htmx-request {
+                display:initial;
+            }
+        }
     </style>
 </head>
 <body class="{#insert body-class}container{/}" {#insert body-attributes}{/}>
