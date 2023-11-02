@@ -1,0 +1,32 @@
+{#include base}
+{#title}- change to edit example{/title}
+<h1 class="display-6 text-uppercase">change to edit</h1>
+<nav id="breadcrumb" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '»';">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="link-underline link-underline-opacity-0">home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">change to edit</li>
+    </ol>
+</nav>
+<main class="slide-it">
+{#fragment id=speakers}
+    <h4>Speakers at JFall 2023</h4>
+    <ul id="speakers" class="list-group">
+        {#for speaker in speakers}
+        <li class="list-group-item d-flex justify-content-between">
+            <div>
+                <i class="bi bi-easel-fill"></i>
+                {speaker}
+            </div>
+            <a class="btn btn-sm btn-outline-secondary" href="/changetoedit/{speaker}/edit""
+                ><i class="bi bi-pencil-square"></i> Edit</a></li>
+        {/for}
+    </ul>
+{/fragment}
+</main>
+{/include}
+
+<!--
+     hx-target="main" hx-swap="innerHTML"
+
+                    hx-get="/changetoedit/{ speaker}/edit"
+-->

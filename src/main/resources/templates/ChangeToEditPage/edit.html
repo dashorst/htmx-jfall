@@ -1,0 +1,17 @@
+<form method="post">
+    <h4>Edit Speaker</h4>
+
+    <div class="form-floating mb-3">
+        <input type="text" name="newName" id="newName" class="form-control" value="{oldName}">
+        <label for="newName">Name</label>
+    </div>
+    <div>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </div>
+</form>
+
+<!--
+     hx-target="main"
+
+    hx-post="/changetoedit/{ oldName}/edit" 
+-->

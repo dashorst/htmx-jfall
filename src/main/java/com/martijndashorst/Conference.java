@@ -110,4 +110,10 @@ public class Conference {
                 "Lucas Jellema",
                 "Susanne Pieterse"));
     }
+
+    public void update(String oldName, String newName) {
+        int index = speakers.indexOf(oldName);
+        speakers.remove(index);
+        speakers.add(index, newName);
+    }
 }
