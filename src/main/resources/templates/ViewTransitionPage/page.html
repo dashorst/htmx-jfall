@@ -1,0 +1,28 @@
+{#include base}
+{#title}- view transition example{/title}
+<h1 class="display-6 text-uppercase">view transition</h1>
+<nav id="breadcrumb" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '»';">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="link-underline link-underline-opacity-0">home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">view transition</li>
+    </ol>
+</nav>
+<main class="slide-it" hx-target="main" hx-swap="innerHTML transition:true">
+    <div class="alert alert-info small">View transitions are currently only supported in Chrome</div>
+{#fragment id=speakers}
+    <h4>Speakers at JFall 2023</h4>
+    <ul id="speakers" class="list-group">
+        {#for speaker in speakers}
+        <li class="list-group-item d-flex justify-content-between">
+            <div>
+                <i class="bi bi-easel-fill"></i>
+                {speaker}
+            </div>
+            <button class="btn btn-sm btn-outline-secondary"
+                hx-get="/viewtransition/{speaker}/edit"
+                ><i class="bi bi-pencil-square"></i> Edit</button></li>
+        {/for}
+    </ul>
+{/fragment}
+</main>
+{/include}
