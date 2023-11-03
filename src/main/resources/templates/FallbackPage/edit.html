@@ -1,0 +1,30 @@
+{#include base}
+{#title}- fallback scenarios{/title}
+<h1 class="display-6 text-uppercase">fallback scenarios</h1>
+<nav id="breadcrumb" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '»';">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="link-underline link-underline-opacity-0">home</a></li>
+        <li class="breadcrumb-item"><a href="/fallback" class="link-underline link-underline-opacity-0">fallback scenarios</a></li>
+        <li class="breadcrumb-item active" aria-current="page">edit {oldName}</li>
+    </ol>
+</nav>
+<main hx-select="main" hx-push-url="/fallback" hx-swap="outerHTML" hx-select-oob="#breadcrumb">
+    <form method="post" target="/fallback/{oldName}/edit" hx-post="/fallback/{oldName}/edit" hx-target="main">
+        <h4>Edit Speaker</h4>
+    
+        <div class="form-floating mb-3">
+            <input type="text" name="newName" id="newName" class="form-control" value="{oldName}">
+            <label for="newName">Name</label>
+        </div>
+        <div>
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </form>
+</main>
+{/include}
+
+<!--
+<main hx-select="main" hx-push-url="/fallback" hx-swap="outerHTML" hx-select-oob="#breadcrumb">
+
+<form method="post" target="/fallback/{oldName}/edit" hx-post="/fallback/{oldName}/edit" hx-target="main">
+->
