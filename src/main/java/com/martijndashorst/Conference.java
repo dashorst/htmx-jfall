@@ -25,6 +25,14 @@ public class Conference {
         return speakers.remove(speaker);
     }
 
+    public void update(String oldName, String newName) {
+        int index = speakers.indexOf(oldName);
+        if (index >= 0) {
+            speakers.remove(index);
+            speakers.add(index, newName);
+        }
+    }
+
     public void reset() {
         speakers = getSpeakers();
     }
@@ -109,11 +117,5 @@ public class Conference {
                 "Alina Yurenko",
                 "Lucas Jellema",
                 "Susanne Pieterse"));
-    }
-
-    public void update(String oldName, String newName) {
-        int index = speakers.indexOf(oldName);
-        speakers.remove(index);
-        speakers.add(index, newName);
     }
 }
