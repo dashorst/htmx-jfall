@@ -48,6 +48,10 @@
     </style>
 </head>
 <body class="{#insert body-class}container{/}" {#insert body-attributes}{/}>
+    <div class="float-end mt-1">
+        {#if inject:vertxRequest.getHeader('HX-Request')}<span id="htmx" class="badge text-bg-danger">HTMX</span>
+        {#else}<span id="htmx" class="badge text-bg-info">HTTP</span>{/if}
+    </div>
     {#insert}no body{/}
 </body>
 </html>
