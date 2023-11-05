@@ -3,7 +3,6 @@ package com.martijndashorst;
 import java.util.List;
 
 import io.quarkus.qute.CheckedTemplate;
-import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.FormParam;
