@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/htmx.png" />
     <title>HTMX demo{#insert title}{/}</title>
-    <link href="/webjars/bootstrap/5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/webjars/bootstrap-icons/1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="/webjars/bootstrap/5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/webjars/htmx.org/1.9.6/dist/htmx.js"></script>
+    <link href="/webjars/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/webjars/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="/webjars/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/webjars/htmx.org/dist/htmx.js"></script>
     <style>
         body {
             background-size: cover;
@@ -46,9 +46,43 @@
             transition: opacity 1s ease-out;
         }
     </style>
+   <style>
+    @keyframes fade-in {
+      from { opacity: 0; }
+    }
+ 
+    @keyframes fade-out {
+      to { opacity: 0; }
+    }
+ 
+    @keyframes slide-from-right {
+      from { transform: translateX(900px); }
+    }
+ 
+    @keyframes slide-to-left {
+      to { transform: translateX(-900px); }
+    }
+ 
+    /* define animations for the old and new content */
+    ::view-transition-old(slide-it) {
+      animation: 900ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+      3000ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+    }
+    ::view-transition-new(slide-it) {
+      animation: 2100ms cubic-bezier(0, 0, 0.2, 1) 450ms both fade-in,
+      3000ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+    }
+ 
+    /* tie the view transition to a given CSS class */
+    .sample-transition {
+        view-transition-name: slide-it;
+    }
+     
+ </style>
 </head>
 <body class="{#insert body-class}container{/}" {#insert body-attributes}{/}>
     <div class="float-end mt-1">
+        <span id="indicator" class="htmx-indicator spinner-border spinner-border-sm text-info"></span>
         {#if inject:vertxRequest.getHeader('HX-Request')}<span id="htmx" class="badge text-bg-danger">HTMX</span>
         {#else}<span id="htmx" class="badge text-bg-info">HTTP</span>{/if}
     </div>
