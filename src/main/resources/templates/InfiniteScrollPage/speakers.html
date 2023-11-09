@@ -1,5 +1,6 @@
 {#for speaker in speakers}
 <li class="list-group-item"
+>
     <i class="bi bi-easel-fill"></i>
     {speaker}
 </li>
@@ -7,9 +8,9 @@
 
 <!--
 { #if speaker_isLast}
-hx-get="/infinitescroll/speakers"
-hx-trigger="revealed"
-hx-swap="afterend"
-hx-indicator="main"
+        hx-get="/infinitescroll/speakers"
+        hx-trigger="revealed"
+        hx-swap="afterend"
+        hx-indicator="main"
 { /if}>
 -->

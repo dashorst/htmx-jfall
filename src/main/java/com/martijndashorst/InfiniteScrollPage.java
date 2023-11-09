@@ -14,7 +14,7 @@ public class InfiniteScrollPage {
     @CheckedTemplate
     public static class Templates {
         public static native TemplateInstance page(List<String> speakers);
-        public static native TemplateInstance speakers(List<String> speakers);
+        public static native TemplateInstance page$speakers(List<String> speakers);
     }
 
     @Inject
@@ -22,7 +22,7 @@ public class InfiniteScrollPage {
 
     @GET
     public TemplateInstance page() {
-        return Templates.page(conference.randomSpeakers(6));
+        return Templates.page(conference.randomSpeakers(3));
     }
     @GET
     @Path("/speakers")
@@ -31,6 +31,6 @@ public class InfiniteScrollPage {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
         }
-        return Templates.speakers(conference.randomSpeakers(6));
+        return Templates.page$speakers(conference.randomSpeakers(3));
     }
 }
