@@ -15,10 +15,18 @@
         Refresh speakers (4s)
     </button>
     <ul id="speakers" class="list-group">
+{#fragment id=speakers}
+{#for speaker in speakers}
+        <li class="list-group-item"><i class="bi bi-easel-fill"></i> {speaker}</li>
+{/for}
+{/fragment}
     </ul>
 </main>
 {/include}
 
 <!--
-<span class="spinner-border text-info" aria-hidden="true"></span>
+    <span id="indicator" class="spinner-border text-info" aria-hidden="true"></span>
+
+    hx-indicator="#indicator"
+    htmx-indicator
 -->
