@@ -17,7 +17,7 @@ public class HxDeletePage {
     @CheckedTemplate
     public static class Templates {
         public static native TemplateInstance page(List<String> speakers);
-        public static native TemplateInstance speakers(List<String> speakers);
+        public static native TemplateInstance page$speakers(List<String> speakers);
     }
 
     @Inject
@@ -32,7 +32,7 @@ public class HxDeletePage {
     @Path("/reset")
     public TemplateInstance reset() {
         conference.reset();
-        return Templates.speakers(conference.speakers().subList(0, 7));
+        return Templates.page$speakers(conference.speakers().subList(0, 7));
     }
 
     @DELETE
@@ -41,6 +41,6 @@ public class HxDeletePage {
         if (!conference.delete(name)) {
             return Response.status(Status.NOT_FOUND).entity(name).build();
         }
-        return Response.ok().build();
+        return Response.ok("").build();
     }
 }

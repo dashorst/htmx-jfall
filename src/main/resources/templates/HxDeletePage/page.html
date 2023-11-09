@@ -9,6 +9,38 @@
 </nav>
 <main>
     <h4>Speakers at JFall 2023</h4>
-    {#include HxDeletePage/speakers speakers=speakers}{/}
+    {#fragment id=speakers}
+    <ul id="speakers" class="list-group" 
+    >
+    {#for speaker in speakers}
+    <li class="list-group-item d-flex justify-content-between">
+        <div><i class="bi bi-easel-fill"></i>
+        {speaker}
+        </div>
+        <button class="btn btn-sm btn-outline-danger"
+        ><i class="bi bi-person-x-fill"></i></button>
+    </li>
+    {/for}
+    {/fragment}
+    </ul>
+    <button class="btn btn-outline-light mt-1"
+    >Reset</button>
 </main>
 {/include}
+<!--
+    for the ul on top:
+
+    hx-confirm="Are you sure?"
+    hx-target="closest li" 
+    hx-swap="outerHTML swap:1s"
+
+    for the delete speaker button
+
+    hx-delete="/hxdelete/delete/{ speaker}"
+
+    reset button:
+    { #if !inject:vertxRequest.getHeader("hx-request") }
+        hx-target="#speakers" hx-get="/hxdelete/reset" hx-swap="outerHTML"
+    { /if}
+
+-->
