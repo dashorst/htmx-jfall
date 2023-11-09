@@ -9,8 +9,20 @@
 </nav>
 <main>
     <h4>Speakers at JFall 2023</h4>
-    <button class="btn btn-primary mb-3">Refresh speakers</button>
+    <button 
+        class="btn btn-primary mb-3">Refresh speakers</button>
     <ul id="speakers" class="list-group">
+{#fragment id=speakers}
+{#for speaker in speakers}
+        <li class="list-group-item"><i class="bi bi-easel-fill"></i> {speaker}</li>
+{/for}
+{/fragment}
     </ul>
 </main>
 {/include}
+
+<!--
+    hx-get="/hxget/speakers" 
+    hx-target="#speakers" 
+    hx-trigger="click"
+-->

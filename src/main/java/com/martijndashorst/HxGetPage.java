@@ -13,8 +13,8 @@ import jakarta.ws.rs.Path;
 public class HxGetPage {
     @CheckedTemplate
     public static class Templates {
-        public static native TemplateInstance page();
-        public static native TemplateInstance speakers(List<String> speakers);
+        public static native TemplateInstance page(List<String> speakers);
+        public static native TemplateInstance page$speakers(List<String> speakers);
     }
 
     @Inject
@@ -22,7 +22,9 @@ public class HxGetPage {
 
     @GET
     public TemplateInstance page() {
-        return Templates.page();
+        var tmp = conference.speakers();
+        Collections.shuffle(tmp);
+        return Templates.page(tmp.subList(0, 7));
     }
 
     @GET
@@ -30,6 +32,6 @@ public class HxGetPage {
     public TemplateInstance speakers() {
         var tmp = conference.speakers();
         Collections.shuffle(tmp);
-        return Templates.speakers(tmp.subList(0, 7));
+        return Templates.page$speakers(tmp.subList(0, 7));
     }
 }
