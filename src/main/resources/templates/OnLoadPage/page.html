@@ -1,0 +1,34 @@
+{#include base}
+{#body-attributes}hx-indicator="#indicator"{/body-attributes}
+{#title}- load trigger example{/title}
+<h1 class="display-6 text-uppercase">load trigger</h1>
+<nav id="breadcrumb" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '»';">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="link-underline link-underline-opacity-0">home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">load trigger</li>
+    </ol>
+</nav>
+<main class="row">
+{#fragment id=count}
+<div class="col-2 mb-2"
+{#if count > 1}
+    hx-trigger="load {#if count == 12}delay:100ms{/if}"
+    hx-get="onload/count/{count}"
+    hx-swap="afterend"
+{/if}
+>
+    <div class="card">
+        <div class="card-body text-center">{count}</div>
+    </div>
+</div>
+{/fragment}
+</main>
+{/include}
+
+<!--
+{#if count > 1}
+    hx-trigger="load {#if count == 12}delay:100ms{/if}"
+    hx-get="onload/count/{ count}"
+    hx-swap="afterend"
+{/if}
+-->
