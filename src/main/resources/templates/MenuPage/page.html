@@ -1,0 +1,19 @@
+{#include base}
+{#title}- menu example{/title}
+<h1 class="display-6 text-uppercase">menu</h1>
+<nav id="breadcrumb" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '»';">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="link-underline link-underline-opacity-0">home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">menu</li>
+    </ol>
+</nav>
+<main>
+    <h4>Menu</h4>
+    <ul class="list-group" hx-target="#content" hx-on::after-request="htmx.takeClass(event.detail.elt, 'active')">
+        {#for item in menu}<li class="list-group-item" hx-get="/menu/{item}">{item}</li>{/for}
+    </ul>
+    {#fragment id="content"}
+    <section id="content">You picked: {selected}</section>
+    {/fragment}
+</main>
+{/include}
