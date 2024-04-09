@@ -7,9 +7,9 @@
         <li class="breadcrumb-item active" aria-current="page">fallback scenarios</li>
     </ol>
 </nav>
-<main>
+<main hx-select="main" hx-target="main" hx-push-url="true">
 {#fragment id=speakers}
-    <h4>Speakers at JFall 2023</h4>
+    <h4>Speakers at HX-CONF</h4>
     <ul id="speakers" class="list-group">
         {#for speaker in speakers}
         <li class="list-group-item d-flex justify-content-between">
@@ -18,7 +18,8 @@
                 {speaker}
             </div>
             <a class="btn btn-sm btn-outline-secondary" 
-                href="/fallback/{speaker}/edit"><i class="bi bi-pencil-square"></i> Edit</a></li>
+                hx-get="/fallback/{speaker}/edit"
+                ><i class="bi bi-pencil-square"></i> Edit</a></li>
         {/for}
     </ul>
 {/fragment}
