@@ -7,7 +7,7 @@
         <li class="breadcrumb-item active" aria-current="page">view transition</li>
     </ol>
 </nav>
-<main class="slide-it" hx-target="main" hx-swap="innerHTML transition:true">
+<main hx-target="main" hx-swap="innerHTML">
     <div class="alert alert-info small">View transitions are currently only supported in Chrome</div>
 {#fragment id=speakers}
     <h4>Speakers at HX-CONF</h4>
@@ -26,3 +26,11 @@
 {/fragment}
 </main>
 {/include}
+
+<!--
+    op main:
+    class="slide-it" 
+
+    main hx-swap add:
+     transition:true
+-->
