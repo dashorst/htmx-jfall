@@ -22,16 +22,21 @@ public class HxGetPage {
 
     @GET
     public TemplateInstance page() {
-        var tmp = conference.speakers();
-        Collections.shuffle(tmp);
-        return Templates.page(tmp.subList(0, 7));
+        var tmp = conference.randomSpeakers(7);
+        return Templates.page(tmp);
     }
 
     @GET
     @Path("/speakers")
     public TemplateInstance speakers() {
-        var tmp = conference.speakers();
-        Collections.shuffle(tmp);
-        return Templates.page$speakers(tmp.subList(0, 7));
+        var tmp = conference.randomSpeakers(7);
+        return Templates.page$speakers(tmp);
+    }
+
+    @GET
+    @Path("/speakers/add")
+    public TemplateInstance addSpeaker() {
+        var tmp = conference.randomSpeakers(1);
+        return Templates.page$speakers(tmp);
     }
 }

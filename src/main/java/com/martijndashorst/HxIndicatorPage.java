@@ -22,20 +22,18 @@ public class HxIndicatorPage {
 
     @GET
     public TemplateInstance page() {
-        var tmp = conference.speakers();
-        Collections.shuffle(tmp);
+        var tmp = conference.randomSpeakers(7);
         return Templates.page(tmp);
     }
 
     @GET
     @Path("/speakers")
     public TemplateInstance speakers() {
-        var tmp = conference.speakers();
-        Collections.shuffle(tmp);
+        var tmp = conference.randomSpeakers(7);
         try {
             Thread.sleep(4_000);
         } catch (InterruptedException e) {
         }
-        return Templates.page$speakers(tmp.subList(0, 7));
+        return Templates.page$speakers(tmp);
     }
 }
