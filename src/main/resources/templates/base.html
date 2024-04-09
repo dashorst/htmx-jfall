@@ -80,9 +80,9 @@
      
  </style>
 </head>
-<body class="{#insert body-class}container{/}" {#insert body-attributes}{/}>
+<body class="{#insert body-class}container{/}" {#insert body-attributes}{/} hx-indicator="#htmx-indicator">
     <div class="float-end mt-1">
-        <span id="indicator" class="htmx-indicator spinner-border spinner-border-sm text-info"></span>
+        <span id="htmx-indicator" class="htmx-indicator spinner-border spinner-border-sm text-info"></span>
         {#if inject:vertxRequest.getHeader('HX-Request')}<span id="htmx" class="badge text-bg-danger">HTMX</span>
         {#else}<span id="htmx" class="badge text-bg-info">HTTP</span>{/if}
     </div>
