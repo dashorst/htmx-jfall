@@ -32,6 +32,6 @@ public class HxBoostPage {
         int pageSize = 7;
         int startIndex = Math.max(0, Math.min((pagenr - 1) * pageSize, tmp.size()));
         int endIndex = Math.max(0, Math.min(pagenr  * pageSize, tmp.size()));
-        return Templates.page(pagenr, tmp.subList(startIndex, endIndex), 1 + tmp.size()/pageSize);
+        return Templates.page(pagenr, tmp.subList(startIndex, endIndex), 1 + (tmp.size() - 1)/pageSize);
     }
 }
