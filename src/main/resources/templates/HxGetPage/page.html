@@ -1,5 +1,14 @@
 {#include base}
 {#title}- hx-get example{/title}
+<style>
+.fade-me-in.htmx-added {
+  opacity: 0;
+}
+.fade-me-in {
+  opacity: 1;
+  transition: opacity 500ms ease-out;
+}
+  </style> 
 <h1 class="display-6 text-uppercase">hx-get</h1>
 <nav id="breadcrumb" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '»';">
     <ol class="breadcrumb">
@@ -11,6 +20,9 @@
     <h4>Speakers at HX-CONF</h4>
     <button 
         class="btn btn-primary mb-3">Refresh speakers</button>
+    <button 
+        class="btn btn-primary mb-3">Add speaker</button>
+
     <ul id="speakers" class="list-group">
 {#fragment id=speakers}
 {#for speaker in speakers}
@@ -22,7 +34,12 @@
 {/include}
 
 <!--
-    hx-get="/hxget/speakers" 
-    hx-target="#speakers" 
-    hx-trigger="click"
+        hx-get="/hxget/speakers" 
+        hx-target="#speakers" 
+        hx-trigger="click"
+
+        hx-swap="afterbegin settle:500ms"
+        hx-get="/hxget/speakers/add" 
+        hx-target="#speakers" 
+        hx-trigger="click"
 -->
