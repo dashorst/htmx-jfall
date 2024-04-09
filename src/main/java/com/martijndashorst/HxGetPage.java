@@ -1,6 +1,5 @@
 package com.martijndashorst;
 
-import java.util.Collections;
 import java.util.List;
 
 import io.quarkus.qute.CheckedTemplate;
